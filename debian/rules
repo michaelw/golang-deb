@@ -2,7 +2,7 @@
 # This file is in the public domain.
 # You may freely use, modify, distribute, and relicense it.
 
-export GOVER := $(shell perl -w -mDpkg::Version -e 'Dpkg::Version->new(`dpkg-parsechangelog -SVersion`)->version() =~ /^([0-9]+\.[0-9]+)/ && print("$$1\n")')
+export GOVER := $(shell perl -w -mDpkg::Version -e 'Dpkg::Version->new(`dpkg-parsechangelog --count 1 | awk '\''\$$1 == "Version:"{print \$$2}'\''`)->version() =~ /^([0-9]+\.[0-9]+)/ && print("$$1\n")')
 
 export GOROOT := $(CURDIR)
 export GOROOT_FINAL := /usr/lib/go-$(GOVER)
@@ -112,7 +112,7 @@ override_dh_makeshlibs:
 	echo "golang:Provides=libgolang-$(GOVER)-std1-$$HASH" >> $(CURDIR)/debian/libgolang-$(GOVER)-std1.substvars
 
 override_dh_auto_build-arch:
-	[ -f VERSION ] || echo "debian snapshot +$$(dpkg-parsechangelog -SVersion)" > VERSION
+	[ -f VERSION ] || echo "debian snapshot +$(GOVER)" > VERSION
 	export GOROOT_BOOTSTRAP=$$(env -i go env GOROOT) \
 		&& cd src \
 		&& $(CURDIR)/debian/helpers/goenv.sh \

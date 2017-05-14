@@ -1,3 +1,11 @@
+golang-1.8 (1.8.1-1ubuntu3instart1) precise; urgency=low
+
+  * backwards compatible dpkg-parsechangelog usage in debian/rules
+  * remove gccgo from builddeps, as it does not install a go binary in PATH
+    (required for bootstrapping)
+
+ -- Michael Weber <mweber@instartlogic.com>  Sun, 14 May 2017 10:34:38 -0700
+
 golang-1.8 (1.8.1-1ubuntu3) artful; urgency=medium
 
   * Backport d/patches/i386-shlib-fix.patch from upstream to fix a problem
