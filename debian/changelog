@@ -1,10 +1,57 @@
-golang-1.8 (1.8.1-1ubuntu3instart1) precise; urgency=low
+golang-1.9 (1.9-0ubuntu1~ppa0~ubuntu16.04.1) xenial; urgency=low
 
-  * backwards compatible dpkg-parsechangelog usage in debian/rules
-  * remove gccgo from builddeps, as it does not install a go binary in PATH
-    (required for bootstrapping)
+  * Auto build.
 
- -- Michael Weber <mweber@instartlogic.com>  Sun, 14 May 2017 10:34:38 -0700
+ -- Michael Hudson-Doyle <mwhudsonlp@fastmail.fm>  Mon, 28 Aug 2017 10:07:16 +0000
+
+golang-1.9 (1.9-0ubuntu1~ppa0) UNRELEASED; urgency=medium
+
+  * Version for ppa:gophers/archive.
+  * Revert upstream sources to 1.9
+  * Remove patches.
+  * build with go 1.6 or better
+  * Do not build standard library into shared library.
+
+ -- Michael Hudson-Doyle <michael.hudson@ubuntu.com>  Mon, 28 Aug 2017 21:12:43 +1200
+
+golang-1.8 (1.8.3-2ubuntu1) artful; urgency=medium
+
+  * Merge from Debian unstable. Remaining changes:
+    - Do not distribute un-built from source race detector runtime files and
+      recommend golang-race-detector-runtime instead (see Debian bug #807455).
+    - Build Go standard library into a shared library.
+    - Backport d/patches/cl-40401--more-robust-ABI-hash.patch from upstream to
+      make the ABIs of shared libraries slightly more robust.
+    - Backport d/patches/i386-shlib-fix.patch from upstream to fix a problem
+      with shared libraries on i386.
+
+ -- Michael Hudson-Doyle <michael.hudson@ubuntu.com>  Tue, 15 Aug 2017 13:03:20 +1200
+
+golang-1.8 (1.8.3-2) unstable; urgency=medium
+
+  * Add 0001-Fix-FTBFS-with-Perl-526.patch
+  * Rename old style config section [git-dch] to [dch]
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Mon, 24 Jul 2017 22:51:01 +0200
+
+golang-1.8 (1.8.3-1ubuntu1) artful; urgency=medium
+
+  * Merge from Debian unstable. Remaining changes:
+    - Do not distribute un-built from source race detector runtime files and
+      recommend golang-race-detector-runtime instead (see Debian bug #807455).
+    - Build Go standard library into a shared library.
+    - Backport d/patches/cl-40401--more-robust-ABI-hash.patch from upstream to
+      make the ABIs of shared libraries slightly more robust.
+    - Backport d/patches/i386-shlib-fix.patch from upstream to fix a problem
+      with shared libraries on i386.
+
+ -- Michael Hudson-Doyle <michael.hudson@ubuntu.com>  Tue, 06 Jun 2017 14:04:12 -0700
+
+golang-1.8 (1.8.3-1) unstable; urgency=medium
+
+  * New upstream release. (Closes: 863292, 863307)
+
+ -- Michael Hudson-Doyle <michael.hudson@ubuntu.com>  Thu, 01 Jun 2017 21:06:00 +1200
 
 golang-1.8 (1.8.1-1ubuntu3) artful; urgency=medium
 
