@@ -1,0 +1,2 @@
+# git-build-recipe format 0.4 deb-version {debversion}
+lp:~mwhudson/+git/golang git-commit:0b61008bc67a4812f99e29ef91243a024451dbc7
