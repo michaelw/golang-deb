@@ -1,3 +1,11 @@
+golang-1.9 (1.9-0ubuntu1instart1) precise; urgency=low
+
+  * backwards compatible version extraction in debian/rules
+  * remove gccgo from builddeps, as it does not install a go binary in PATH
+    (required for bootstrapping)
+
+ -- Michael Weber <mweber@instartlogic.com>  Sun, 03 Sep 2017 00:46:56 -0700
+
 golang-1.9 (1.9-0ubuntu1~ppa0~ubuntu16.04.1) xenial; urgency=low
 
   * Auto build.
